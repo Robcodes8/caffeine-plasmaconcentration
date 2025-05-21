@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
-bioavailability = 1.0  # 100%
+bioavailability = 0.98  # 98%
 
 # Title
 st.title("Caffeine Plasma Concentration Calculator")
@@ -30,14 +30,12 @@ for i in range(1, 24):
 half_life = 5.0
 if baby == "y":
     half_life = 80.0
-elif oral_contraceptives == "y":
-    half_life = 7.0
-elif gender == "f":
-    half_life += 0.5
+if oral_contraceptives == "y":
+    half_life = 8.0
 if pregnant == "y":
-    half_life += 2.0
+    half_life += 15.0
 if smoker == "y":
-    half_life -= 1.0
+    half_life -= 2.0
 
 # Function to calculate plasma concentration
 def caffeine_concentration(doses, body_mass, half_life, Vd):
